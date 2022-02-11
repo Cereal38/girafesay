@@ -2,12 +2,13 @@
 
 bouche="." 
 
-for nb in 1 2 3 4 5 6 7 8 9 10
+i=0
+while [[ $i -le $1 ]]
 do
 	# Début de la bulle
-	echo '        | ' $nb ' |'
+	echo '        | ' $i ' |'
 
-	if [ $nb -eq 10 ]
+	if [ $i -eq $1 ]
 	then
 		bouche="U"
 	fi
@@ -20,12 +21,12 @@ do
 	echo '  \     /'
 	echo '   \___/'
 
-	nb_temp=1
-	while [[ $nb_temp -le $nb ]]
-	do
-		echo '    | |'
-		((nb_temp++))
-	done
+	echo '    | |'
+	echo '    | |'
+	echo '    | |'
+	echo '    | |'
+	echo '    | |'
+	echo '    | |'
 
 	echo '   /   \'
 	echo '  /    #\'
@@ -39,8 +40,11 @@ do
 	echo '  vv   vv'
 	
 	sleep 1s
-	if [ $nb -ne 10 ]
+	if [ $i -ne $1 ]
 	then
 		clear
 	fi
+
+	((i++))
+
 done

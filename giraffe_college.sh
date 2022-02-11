@@ -1,16 +1,14 @@
 #!bin/bash
 
-bouche="." 
+bouche="ω" 
 
-for nb in 1 2 3 4 5 6 7 8 9 10
+a=0
+b=1
+((c=$a+$b))
+while [[ $c -lt $1 ]]
 do
 	# Début de la bulle
-	echo '        | ' $nb ' |'
-
-	if [ $nb -eq 10 ]
-	then
-		bouche="U"
-	fi
+	echo '        | ' $c ' |'
 
 	# Affiche la belle girafe
 	echo '    o o    \/'
@@ -20,12 +18,12 @@ do
 	echo '  \     /'
 	echo '   \___/'
 
-	nb_temp=1
-	while [[ $nb_temp -le $nb ]]
-	do
-		echo '    | |'
-		((nb_temp++))
-	done
+	echo '    | |'
+	echo '    | |'
+	echo '    | |'
+	echo '    | |'
+	echo '    | |'
+	echo '    | |'
 
 	echo '   /   \'
 	echo '  /    #\'
@@ -39,8 +37,13 @@ do
 	echo '  vv   vv'
 	
 	sleep 1s
-	if [ $nb -ne 10 ]
+	if [[ $c -lt $1 ]]
 	then
 		clear
 	fi
+
+	a=$b
+	b=$c
+	((c=$a+$b))
+
 done

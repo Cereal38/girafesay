@@ -2,14 +2,16 @@
 
 bouche="." 
 
-for nb in 1 2 3 4 5 6 7 8 9 10
+i=1
+j=1
+while [[ $i -le $1**2 ]]
 do
 	# Début de la bulle
-	echo '        | ' $nb ' |'
+	echo '        | ' $i ' |'
 
-	if [ $nb -eq 10 ]
+	if [[ $i -eq $1**2 ]]
 	then
-		bouche="U"
+		bouche="O"
 	fi
 
 	# Affiche la belle girafe
@@ -20,12 +22,12 @@ do
 	echo '  \     /'
 	echo '   \___/'
 
-	nb_temp=1
-	while [[ $nb_temp -le $nb ]]
-	do
-		echo '    | |'
-		((nb_temp++))
-	done
+	echo '    | |'
+	echo '    | |'
+	echo '    | |'
+	echo '    | |'
+	echo '    | |'
+	echo '    | |'
 
 	echo '   /   \'
 	echo '  /    #\'
@@ -39,8 +41,12 @@ do
 	echo '  vv   vv'
 	
 	sleep 1s
-	if [ $nb -ne 10 ]
+	if [[ $i -ne $1**2 ]]
 	then
 		clear
 	fi
+
+	((j++))
+	((i=$j**2))
+
 done
