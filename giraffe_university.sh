@@ -2,20 +2,29 @@
 
 bouche="ω" 
 
-for i in [{2..$1}]
+for ((p=2 ; p<$1 ; p++))
 do
 	somme=0
-	for j in {1..$i-1}
+	for ((j=2 ; j < ($1)-1 ; j++))
 	do
-		if (( i mod j != 1 ))
+
+		if (( $(expr $p % $j) == 0 ))
 		then 
 			((somme++))
 		fi
 
-		if (($somme == 0))
-		then
+	done
+
+		if (($somme == 1))
+		then	
+
+				if [[ $c -lt $1 ]]
+				then	
+					clear
+				fi
+
 				# Début de la bulle
-				echo '        | ' $i ' |'
+				echo '        | ' $p ' |'
 
 				# Affiche la belle girafe
 				echo '    o o    \/'
@@ -42,12 +51,8 @@ do
 				echo '  ||v  ||v'
 				echo '  ||   ||  '
 				echo '  vv   vv'
-				
+
 				sleep 1s
-				if [[ $c -lt $1 ]]
-				then
-					clear
-				fi
+
 		fi
-	done
 done
