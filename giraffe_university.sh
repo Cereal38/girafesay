@@ -5,7 +5,7 @@ bouche="ω"
 for ((p=2 ; p<$1 ; p++))
 do
 	somme=0
-	for ((j=2 ; j < ($1)-1 ; j++))
+	for j in $(seq 2 1 $p)
 	do
 
 		if (( $(expr $p % $j) == 0 ))
