@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
+#include <stdlib.h>
+#include <time.h>
 
 #include "../headers/girafe.h"
 
@@ -47,9 +49,81 @@ int main (int argc, char * argv[]) {
 			}
 		}
 
+		if (strcmp(argv[i], "-s") == 0 || strcmp(argv[i], "--secret") == 0) {
+
+			affiche_super_garcon_viande();
+			return 0;
+		}
+
 		if (strcmp(argv[i], "-p") == 0 || strcmp(argv[i], "--prophunt") == 0) {
-		
 			
+			srand( time(NULL) );
+			int posGirafe = rand() % 3 + 1;	
+
+			affiche_marteau();
+			printf("\n\n");
+
+			affiche_lit();
+			printf("\n\n");
+
+			affiche_table();
+			printf("\n\n");
+
+			int posUtil;
+			printf("Guess the girafe's position : ");
+			scanf("%d", &posUtil);
+
+			while (posUtil > 3 || posUtil < 1) {
+
+				printf("Position must be a number between 1 and 3\n");
+				printf("Guess the girafe's position : ");
+				scanf("%d", &posUtil);
+			}
+			
+			char* answer;
+
+			if (posUtil == posGirafe) { answer = "Congratulation !"; }
+			else { answer = "Failed !"; }
+
+			system("clear");
+
+			if ( posGirafe == 1 ) {
+
+				// ADD ANSWER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! SOB
+				affiche_girafe(eyes, mouth, neck);
+				printf("\n\n");
+
+				affiche_lit();
+				printf("\n\n");
+
+				affiche_table();
+				printf("\n\n");
+			}
+			else if ( posGirafe == 2 ) {
+
+				affiche_marteau();
+				printf("\n\n");
+
+				affiche_girafe(eyes, mouth, neck);
+				printf("\n\n");
+
+				affiche_table();
+				printf("\n\n");
+			}
+
+			else if ( posGirafe == 3 ) {
+
+				affiche_marteau();
+				printf("\n\n");
+
+				affiche_lit();
+				printf("\n\n");
+
+				affiche_girafe(eyes, mouth, neck);
+				printf("\n\n");
+			}
+
+			return 0;
 		}
 	}
 
