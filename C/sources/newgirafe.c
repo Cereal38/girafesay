@@ -12,6 +12,11 @@ int main (int argc, char * argv[]) {
 	char * eyes="..";
 	char * mouth="_";
 	int neck = 6; 
+	char text[2048] = "";
+
+	
+	// Stock an index (will be the start of the test) 
+	int indexText = 1;
 
 	// Balaye tout les éléments de argv[]
 	for (int i=1; i<=argc-1; i++) {
@@ -22,9 +27,11 @@ int main (int argc, char * argv[]) {
 			
 			// Vérifie la longueur de la chaîne donnée pour les yeux
 			if (strlen(argv[i+1]) == 2) { eyes = argv[i+1]; }
-			else { printf("[ERREUR] - Bad argument for --eyes\n"); return 1; };
+			else { printf("[ERREUR] - Bad argument for --eyes\n"); return 1; }
 
-	       	};
+			indexText += 2;
+		}
+
 
 
 		// Si argument est --mouth (ou -m)
@@ -32,9 +39,11 @@ int main (int argc, char * argv[]) {
 			
 			// Vérifie la longueur de la chaîne donnée pour la bouhe
 			if (strlen(argv[i+1]) == 1) { mouth = argv[i+1]; }
-			else { printf("[ERREUR] - Bad argument for --mouth\n"); return 1; };
+			else { printf("[ERREUR] - Bad argument for --mouth\n"); return 1; }
 
-	       	};
+			indexText += 2;
+		}
+			
 
 
 		// Si argument est --neck (ou -n)
@@ -47,6 +56,8 @@ int main (int argc, char * argv[]) {
 				printf("ERROR : Neck length too long (%d) | Must be between 0 and 40.\n", neck);
 				neck = 6;
 			}
+
+			indexText += 2;
 		}
 
 		if (strcmp(argv[i], "-s") == 0 || strcmp(argv[i], "--secret") == 0) {
@@ -90,7 +101,7 @@ int main (int argc, char * argv[]) {
 			if ( posGirafe == 1 ) {
 
 				// ADD ANSWER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! SOB
-				affiche_girafe(eyes, mouth, neck);
+				affiche_girafe(eyes, mouth, neck, answer);
 				printf("\n\n");
 
 				affiche_lit();
@@ -104,7 +115,7 @@ int main (int argc, char * argv[]) {
 				affiche_marteau();
 				printf("\n\n");
 
-				affiche_girafe(eyes, mouth, neck);
+				affiche_girafe(eyes, mouth, neck, answer);
 				printf("\n\n");
 
 				affiche_table();
@@ -119,18 +130,36 @@ int main (int argc, char * argv[]) {
 				affiche_lit();
 				printf("\n\n");
 
-				affiche_girafe(eyes, mouth, neck);
+				affiche_girafe(eyes, mouth, neck, answer);
 				printf("\n\n");
 			}
+
+			return 0;
+		}
+
+		if (strcmp(argv[i], "-d") == 0 || strcmp(argv[i], "--dance") == 0) {
+			
+			int duration;
+
+			// Check the argument given for duration 
+			if (argv > 0) { sscanf(argv[1], "%d", &duration); }
+			else { printf("[ERREUR] - Bad argument for --dance | Must be an integer higher than 0\n"); return 1; }
+			
+			dancing_girafe(duration);
 
 			return 0;
 		}
 	}
 
 	
+	for (int j = indexText; j < argc; j++){
 
-	// PROP HUNT
-	affiche_girafe(eyes, mouth, neck);
+		strcat(text, argv[j]);
+		strcat(text," ");
+
+	}
+
+	affiche_girafe(eyes, mouth, neck, text);
 	
 	return 0;
 
