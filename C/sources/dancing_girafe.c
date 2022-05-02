@@ -1,15 +1,22 @@
 
 #include <stdio.h>
+#include <unistd.h>
+
+// Allow to clear screen using clear()
+#define clear() printf("\033[H\033[J")
+
+void changeLength(int* legsLength, int* neckLength, int legsMustGrow, int neckMustGrow);
+int switchColor(int colorValue);
 
 
 void dancing_girafe(int duration) {
+
 	int legsLength = 8;
 	int neckLength = 1;
 	int legsMustGrow = 0;
 	int neckMustGrow = 1;
 	int colorValue = 31;
 
-	
 	for (int i = 0; i < duration; i++) {
 		
 		for (int switchGrow = 0; switchGrow < 7; switchGrow++) {
@@ -25,15 +32,14 @@ void dancing_girafe(int duration) {
 			changeLength(&legsLength, &neckLength, legsMustGrow, neckMustGrow);
 			colorValue = switchColor(colorValue);
 
-//FAIRE LE TEMPS ET LA BOULE DISCO
+			//FAIRE LE TEMPS ET LA BOULE DISCO
 
 			usleep(140000);
-			system("clear");
+			clear();	
 		}
 		
 		if (legsMustGrow == 0) { legsMustGrow = 1; neckMustGrow = 0; }
 		else { legsMustGrow = 0; neckMustGrow = 1; }
-
 	}
 }
 

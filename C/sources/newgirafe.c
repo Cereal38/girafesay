@@ -100,7 +100,6 @@ int main (int argc, char * argv[]) {
 
 			if ( posGirafe == 1 ) {
 
-				// ADD ANSWER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! SOB
 				affiche_girafe(eyes, mouth, neck, answer);
 				printf("\n\n");
 
@@ -110,6 +109,7 @@ int main (int argc, char * argv[]) {
 				affiche_table();
 				printf("\n\n");
 			}
+
 			else if ( posGirafe == 2 ) {
 
 				affiche_marteau();
@@ -142,7 +142,7 @@ int main (int argc, char * argv[]) {
 			int duration;
 
 			// Check the argument given for duration 
-			if (argv > 0) { sscanf(argv[1], "%d", &duration); }
+			if (argv > 0) { sscanf(argv[i+1], "%d", &duration); }
 			else { printf("[ERREUR] - Bad argument for --dance | Must be an integer higher than 0\n"); return 1; }
 			
 			dancing_girafe(duration);
