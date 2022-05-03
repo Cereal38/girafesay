@@ -68,6 +68,10 @@ int main (int argc, char * argv[]) {
 		// If arg is: --prophunt (or -p)
 		if (strcmp(argv[i], "-p") == 0 || strcmp(argv[i], "--prophunt") == 0) {
 			
+			eyes="^^";
+			mouth="_";
+			neck = 6; 
+
 			srand( time(NULL) );
 			// Generate a random number for the girafe position
 			int posGirafe = rand() % 3 + 1;	
