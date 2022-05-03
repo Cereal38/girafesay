@@ -21,7 +21,10 @@ void dancing_girafe(int duration) {
 		
 		for (int switchGrow = 0; switchGrow < 7; switchGrow++) {
 			
-			printf("\033[0;%dm            o o      \n	  (\\|_|/)   \n	  /     \\  \n	 (  UwU  )\n	  \\     /\n	   \\___/\n\033[0m", colorValue);
+			printf ("\033[0;%dm                           |\n                          _A_\n                       ---   ---\n                      |+     .  |\n                     |   *      •|\n                     |`      +   |\n\033[0m", colorValue); 
+
+
+			printf("\033[0;%dm            o o       |   ×   . |\n	  (\\|_|/)      ---___---\n	  /     \\  \n	 (  UwU  )\n	  \\     /\n	   \\___/\n\033[0m", colorValue);
 
 			for (int neck = 0; neck < neckLength; neck++) { printf("\033[0;%dm            | |\n\033[0m", colorValue); }
 
@@ -31,8 +34,6 @@ void dancing_girafe(int duration) {
 			printf("\033[0;%dm	  vv   vv\n\033[0m\n", colorValue);
 			changeLength(&legsLength, &neckLength, legsMustGrow, neckMustGrow);
 			colorValue = switchColor(colorValue);
-
-			//FAIRE LE TEMPS ET LA BOULE DISCO
 
 			usleep(140000);
 			clear();	

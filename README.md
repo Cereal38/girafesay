@@ -1,4 +1,5 @@
 
+
 NAME : 
 
 	girafesay - Show a giraffe who can tell everything you want
@@ -21,3 +22,7 @@ DESCRIPTION :
 
 	-d  Take an int -> The giraffe dances during the given time
 
+AUTHORS :
+
+	BRUN-COSME-GAZOT Guillaume
+	MAGNIN Esmeralda
