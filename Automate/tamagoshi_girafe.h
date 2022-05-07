@@ -1,22 +1,10 @@
 
-#ifndef __AUTOMAT__
-#define __AUTOMAT__
 
-#define MAX_NB_STATES 128
-#define MAX_NB_ENTRIES 128
-#define MAX_NB_OUTPUTS 128
+// tamagoshi_girafe.c
+int randomNumber(int min, int max);
+void playRound(int* fitness, int* stock);
+int max(int value1, int value2);
+void girafeState(int* fitness);
 
-typedef struct {
-
-	int nbStates;
-	int initialStates;
-	int finalStates[MAX_NB_STATES];
-	int transitions[MAX_NB_STATES][MAX_NB_ENTRIES];
-	char outputs[MAX_NB_STATES][MAX_NB_ENTRIES][MAX_NB_OUTPUTS];
-} automat;
-
-void initAutomat(automat *A);
-
-void simulateAutomat(automat *A);
-
-#endif
+// affiche_girafe.c
+void affiche_girafe(char * eyes, char * mouth, int neck, char* text);
