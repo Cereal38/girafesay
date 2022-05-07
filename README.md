@@ -1,8 +1,7 @@
 
-
 NAME : 
 
-	girafesay - Show a giraffe who can tell everything you want
+	girafesay - Show a beautiful girafe who can tell everything you want
 
 SYNOPSIS :
 
@@ -10,17 +9,17 @@ SYNOPSIS :
 
 DESCRIPTION :
 	
-	The giraffe tell the text given
+	The girafe tell the text given
 
-	-e	Takes 2 car long string -> Change giraffe eyes shape
+	-e	Takes 2 car long string -> Change girafe eyes shape
 	
 	-n	Take an int -> The neck take this length
 
 	-s  Shhh ! It's a secret !
 
-	-p  Mini game: Find the giraffe
+	-p  Mini game: Find the girafe
 
-	-d  Take an int -> The giraffe dances during the given time
+	-d  Take an int -> The girafe dances during the given time
 
 AUTHORS :
 

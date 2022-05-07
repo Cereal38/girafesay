@@ -1,6 +1,11 @@
 
 #!/bin/bash
 
+# Choisi un programme aléatoire entre 3 différents
+# - Affiche la suite de tribonacci jusqu'a la valeur saisi par l'utilisateur
+# - Calcul du volume et de l'aire de formes géométriques
+# - Affiche le sens de la vie
+
 nbrRandom=`echo $((1 + $RANDOM % 3))`
 
 # Suite de Tribonacci
@@ -14,7 +19,7 @@ then
 	b=1
 	c=1
 
-	cowsay "J'affiche la suite de Tribonacci jusqu'à la valeur $valeurUtil !"
+	../girafesay "J'affiche la suite de Tribonacci jusqu'à la valeur $valeurUtil !"
 	sleep 3
 
 	clear
@@ -22,7 +27,7 @@ then
 	while [ $c -lt $valeurUtil ]
 	do
 
-		cowsay $c
+		../girafesay $c
 		
 		sleep 0.8
 
@@ -52,7 +57,7 @@ then
 
 		clear
 
-		cowsay "Volume du cube : $volume m3
+		../girafesay "Volume du cube : $volume m3
 			Surface du cube : $surface m2"
 
 		sleep 5
@@ -74,7 +79,7 @@ then
 		
 		clear
 
-		cowsay "Volume du parallelepipede rectangle : $volume m3
+		../girafesay "Volume du parallelepipede rectangle : $volume m3
 			Surface du parallelepipede rectangle : $surface m2"
 		
 		sleep 5
@@ -82,11 +87,11 @@ then
 
 	else
 
-		cowsay "Valeur incorrect..."
+		../girafesay "Valeur incorrect..."
 	fi
 	
 # Affiche 42
 elif [ $nbrRandom -eq 3 ]
 then
-	cowsay 42
+	../girafesay 42
 fi
