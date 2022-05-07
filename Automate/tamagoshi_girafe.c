@@ -7,6 +7,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "tamagoshi_girafe.h"
+
 
 int randomNumber(int min, int max) {
 	/* Generate a random number between min and max value */
@@ -61,9 +63,9 @@ void girafeState (int *fitness){
 	/* Manage girafe state */
 
 	// byebyelife
-	if (*fitness <= 0 || *fitness >= 10 ) { affiche_girafe("XX", "_", 6); }
+	if (*fitness <= 0 || *fitness >= 10 ) { affiche_girafe("XX", "_", 6, ""); }
 	// lifesucks
-	else if (*fitness <= 3 || *fitness >= 7) {  affiche_girafe("@@", "~", 6); }
+	else if (*fitness <= 3 || *fitness >= 7) {  affiche_girafe("@@", "~", 6, ""); }
 	// liferocks
-	else { affiche_girafe("^^", "v", 6); }
+	else { affiche_girafe("^^", "v", 6, ""); }
 }
